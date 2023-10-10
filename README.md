@@ -5,6 +5,6 @@
 ### Tecnologias utilizadas:
 
 * Angular 16
-* ProfessoresApi(https://github.com/BetsonAshton/professoresApi)
 * Bootstrap
 * CRUD
+* api utilizada para integração https://github.com/BetsonAshton/professoresApi
