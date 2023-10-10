@@ -1,0 +1,59 @@
+<div class="m-3">
+
+
+    <h5>Consulta de professores</h5>
+    <p>Listagem de professores cadastrados no sistema.</p>
+    <hr />
+
+    <div class="mb-2">
+        <strong>{{ mensagem }}</strong>
+      </div>
+        
+  
+    <div class="table-responsive">
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>Nome do professor</th>
+                    <th>Matricula</th>
+                    <th>Cpf</th>
+                    <th>Data dos cadastrados</th>
+                   
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr *ngFor="let item of professores">
+                    <td>{{item.nome}}</td>
+                    <td>{{item.matricula}}</td>
+                    <td>{{item.cpf}}</td>
+                    <td>{{item.dataCadastro| date: 'dd/MM/yyyy HH:mm'}}</td>
+                   
+                    <td>
+                        <a [routerLink]="['/edicao-professor', item.id] "
+                            class="btn btn-outline-primary btn-sm">
+                            Editar
+                        </a>
+                        &nbsp;
+                        <button class="btn btn-outline-danger btn-sm" (click)="onDelete(item.id)">
+                            Excluir
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7">
+                        Total de registros: {{professores.length}}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+    </div>
+
+
+</div>

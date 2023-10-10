@@ -1,0 +1,70 @@
+<div class="m-3">
+  <h5>Edição de professores</h5>
+  <p>Utilize o formulário para alterar os dados do professor cadastrado.</p>
+  <hr />
+
+  <div class="mb-2">
+    <strong>{{ mensagem }}</strong>
+  </div>
+
+
+  <form [formGroup]="formEdicao" (ngSubmit)="onSubmit()">
+    <!-- campo oculto -->
+    <input type="hidden" formControlName="id" />
+
+    <div class="row mb-2">
+      <div class="col">
+        <label>Nome do professor:</label>
+        <input type="text" class="form-control" formControlName="nome" />
+        <div *ngIf="form.nome.touched && form.nome.invalid" class="text-danger">
+          <div *ngIf="form.nome.errors.required">
+            Por favor, informe o nome do professor.
+          </div>
+          <div *ngIf="form.nome.errors.minlength">
+            Por favor, informe no mínimo 6 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label>matricula:</label>
+        <input type="text" class="form-control" formControlName="matricula" />
+        <div
+          *ngIf="form.matricula.touched && form.matricula.invalid"
+          class="text-danger"
+        >
+          <div *ngIf="form.matricula.errors.required">
+            Por favor, informe a matricula do professor.
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label>cpf:</label>
+        <input type="text" class="form-control" formControlName="cpf" />
+        <div
+          *ngIf="form.cpf.touched && form.cpf.invalid"
+          class="text-danger"
+        >
+          <div *ngIf="form.quantidade.errors.required">
+            Por favor, informe um cpf.
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col">
+        <input
+          type="submit"
+          [disabled]="!formEdicao.valid"
+          class="btn btn-primary"
+          value="Salvar Alterações"
+        />
+        &nbsp;
+        <a routerLink="/consulta-professor" class="btn btn-success">
+          Ir para a consulta
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
